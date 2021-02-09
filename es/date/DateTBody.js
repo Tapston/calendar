@@ -73,8 +73,10 @@ var DateTBody = function (_React$Component) {
     month1.date(1);
     var day = month1.day();
     // special for Amixgroup
-    // const lastMonthDiffDay = (day + 7 - value.localeData().firstDayOfWeek()) % 7;
-    var lastMonthDiffDay = 7;
+    var lastMonthDiffDay = (day + 7 - value.localeData().firstDayOfWeek()) % 7;
+    if (lastMonthDiffDay === 0) {
+      lastMonthDiffDay = 7;
+    }
     // calculate last month
     var lastMonth1 = month1.clone();
     lastMonth1.add(0 - lastMonthDiffDay, 'days');

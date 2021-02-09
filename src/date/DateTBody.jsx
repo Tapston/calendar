@@ -75,8 +75,10 @@ export default class DateTBody extends React.Component {
     month1.date(1);
     const day = month1.day();
     // special for Amixgroup
-    // const lastMonthDiffDay = (day + 7 - value.localeData().firstDayOfWeek()) % 7;
-    const lastMonthDiffDay = 7;
+    let lastMonthDiffDay = (day + 7 - value.localeData().firstDayOfWeek()) % 7;
+    if (lastMonthDiffDay === 0) {
+      lastMonthDiffDay = 7;
+    }
     // calculate last month
     const lastMonth1 = month1.clone();
     lastMonth1.add(0 - lastMonthDiffDay, 'days');
